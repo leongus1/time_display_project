@@ -1,13 +1,11 @@
 from django.shortcuts import render, HttpResponse
-from time import gmtime, strftime
-from django.utils import timezone
-import datetime
+from time import strftime, localtime
 
 
 
 def show_time(request):
     context = {
-        "time": strftime("%B %d, %Y \n%H:%M %p", gmtime())
+        "time": strftime("%B %d, %Y   %I:%M %p", localtime()),
     }
     return render(request, 'index.html', context)
 
